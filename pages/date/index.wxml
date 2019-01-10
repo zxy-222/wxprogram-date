@@ -1,0 +1,25 @@
+<view class="wrapper">
+    <view class="title">
+        <view class="lt_arrow" bindtap="preMonth">
+            <image src="../../assets/image/lt_arrow.png" ></image>
+        </view>
+        <view class="date">{{year}}年{{month}}月</view>
+         <view class="rt_arrow" bindtap="nextMonth">
+            <image src="../../assets/image/rt_arrow.png"></image>
+        </view>
+    </view>
+    <view class="content">
+        <view class="header">
+            <view wx:for="{{weeks}}" wx:key="item" class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}</view>
+        </view>
+        <view class="dateBox">
+            <block wx:for="{{dateArr}}" wx:key="item">
+                <view class=" item {{isToday == item.isToday ? 'nowDay':''}}" bindtap="seeMore"  data-year='{{year}}' data-month='{{month}}' data-datenum='{{item.dateNum}}'>
+                  <view class="" >
+                      {{item.dateNum}}   
+                  </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
